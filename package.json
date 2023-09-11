@@ -4,7 +4,7 @@
   "description": "A simple JSON resume theme using the color palette from the \"Chakra\" UI framework",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "node src/build_reference_template.js && tailwindcss build -i ./src/main.css -o ./dist/style.css"
   },
   "repository": {
     "type": "git",
@@ -26,5 +26,9 @@
   "homepage": "https://github.com/dmistomin/jsonresume-theme-chakra#readme",
   "dependencies": {
     "handlebars": "^4.7.8"
+  },
+  "devDependencies": {
+    "postcss": "^8.4.29",
+    "tailwindcss": "^3.3.3"
   }
 }
