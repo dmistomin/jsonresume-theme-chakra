@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/dmistomin/jsonresume-theme-chakra/issues"
   },
-  "homepage": "https://github.com/dmistomin/jsonresume-theme-chakra#readme"
+  "homepage": "https://github.com/dmistomin/jsonresume-theme-chakra#readme",
+  "dependencies": {
+    "handlebars": "^4.7.8"
+  }
 }
