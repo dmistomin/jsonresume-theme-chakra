@@ -4,9 +4,10 @@ module.exports = {
     "./dist/**/*.html",
   ],
   theme: {
-    ibm_plex: {
-      fontFamily: 'IBM Plex Sans',
-    }
+    fontFamily: {
+      sans: ['IBM Plex Sans', 'sans-serif'],
+      display: ['IBM Plex Sans Condensed', 'sans-serif'],
+    },
   },
   plugins: [],
 }
