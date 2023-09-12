@@ -1,15 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>{{resume.basics.name}}</title>
-        <link href="{{cssPath}}" rel="stylesheet" type="text/css">
-    </head>
-    <body>
-        <div>
-            <p class="bg-green-300">
-                Hello world!
-            </p>
-        </div>
-    </body>
+
+<head>
+    <meta charset="utf-8">
+    <title>{{resume.basics.name}}</title>
+    <link href="{{cssPath}}" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <header>
+        {{#resume.basics}}
+        <h1 class="font-display font-medium text-4xl">
+            {{name}}
+        </h1>
+        <h2 class="font-display font-light text-xl">{{label}}</h2>
+        {{/resume.basics}}
+    </header>
+    <main>
+        <section>
+            <h3 class="uppercase font-display font-bold">Employment</h3>
+            <hr>
+            {{#each resume.work}}
+            <div>
+                <h4>{{name}}</h4>
+                <p>{{position}}</p>
+                <p>{{startDate}} - {{endDate}}</p>
+                <p>{{summary}}</p>
+                <p>{{description}}</p>
+                <ul class="list-disc list-inside">
+                    {{#each highlights}}
+                    <li>{{.}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+            {{/each}}
+        </section>
+        <section>
+            <h3 class="uppercase font-display font-bold">Education</h3>
+            <hr>
+            {{#each resume.education}}
+            <div>
+                <h4>{{institution}}</h4>
+            </div>
+            {{/each}}
+        </section>
+        <section>
+            <h3 class="uppercase font-display font-bold">Languages & Technologies</h3>
+            <hr>
+        </section>
+    </main>
+</body>
+
 </html>
