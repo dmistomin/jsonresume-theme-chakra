@@ -7,48 +7,74 @@
     <link href="{{cssPath}}" rel="stylesheet" type="text/css">
 </head>
 
-<body>
-    <header>
-        {{#resume.basics}}
-        <h1 class="font-display font-medium text-4xl">
-            {{name}}
-        </h1>
-        <h2 class="font-display font-light text-xl">{{label}}</h2>
-        {{/resume.basics}}
+<body class="bg-offwhite text-midnight px-20 py-2">
+    <header class="grid grid-cols-6 gap-4">
+        <div class="col-start-2 col-span-5 py-6">
+            {{#resume.basics}}
+            <h1 class="font-display font-bold text-highlight text-5xl pb-1">
+                {{name}}
+            </h1>
+            <h2 class="font-display font-light text-xl">{{label}}</h2>
+            {{/resume.basics}}
+        </div>
     </header>
-    <main>
-        <section>
-            <h3 class="uppercase font-display font-bold">Employment</h3>
-            <hr>
-            {{#each resume.work}}
-            <div>
-                <h4>{{name}}</h4>
-                <p>{{position}}</p>
-                <p>{{startDate}} - {{endDate}}</p>
-                <p>{{summary}}</p>
-                <p>{{description}}</p>
-                <ul class="list-disc list-inside">
-                    {{#each highlights}}
-                    <li>{{.}}</li>
+    <div>
+        <main>
+            <section class="grid grid-cols-6 gap-4 py-5">
+                <h3 class="uppercase font-display font-bold col-span-1 text-highlight text-lg">Employment</h3>
+                <div class="col-span-5">
+                    {{#each resume.work}}
+                    <div class="pb-5">
+                        <div class="pb-2">
+                            <h4>
+                                <a class="font-medium font-display text-lg" href="{{url}}">{{name}}</a>
+                                – <span class="italic">{{position}}</span>
+                            </h4>
+                            <p class="font-light">{{startDate}} - {{endDate}}</p>
+                        </div>
+                        <div class="text-twilight">
+                            <p>{{summary}}</p>
+                            <p>{{description}}</p>
+                            <ul class="list-square list-inside pl-10 pt-5">
+                                {{#each highlights}}
+                                <li>{{.}}</li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                    </div>
                     {{/each}}
-                </ul>
-            </div>
-            {{/each}}
-        </section>
-        <section>
-            <h3 class="uppercase font-display font-bold">Education</h3>
-            <hr>
-            {{#each resume.education}}
-            <div>
-                <h4>{{institution}}</h4>
-            </div>
-            {{/each}}
-        </section>
-        <section>
-            <h3 class="uppercase font-display font-bold">Languages & Technologies</h3>
-            <hr>
-        </section>
-    </main>
+                </div>
+            </section>
+            <section class="grid grid-cols-6 gap-4 py-5">
+                <h3 class="uppercase font-display font-bold col-span-1 text-highlight text-lg">Education</h3>
+                <div class="col-span-5">
+                    {{#each resume.education}}
+                    <div>
+                        <div class="pb-2">
+                            <h4>
+                                <a class="font-medium font-display text-lg" href="{{url}}">{{institution}}</a>
+                                – <span class="italic">{{studyType}}, {{area}}</span>
+                            </h4>
+                            <p class="font-light">{{startDate}} – {{endDate}}</p>
+                        </div>
+                        <div class="text-twilight">
+                            <p>{{summary}}</p>
+                            <p>{{description}}</p>
+                            <ul class="list-square list-inside pl-10 pt-5">
+                                {{#each highlights}}
+                                <li>{{.}}</li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </section>
+            <section class="grid grid-cols-6 gap-4">
+                <h3 class="uppercase font-display font-bold text-highlight text-lg">Skills</h3>
+            </section>
+        </main>
+    </div>
 </body>
 
 </html>
