@@ -7,7 +7,7 @@
     <link href="{{cssPath}}" rel="stylesheet" type="text/css">
 </head>
 
-<body class="bg-offwhite text-midnight px-20 py-2">
+<body class="bg-offwhite text-midnight pl-20 pr-40 py-2">
     <header class="grid grid-cols-6 gap-4">
         <div class="col-start-2 col-span-5 py-6">
             {{#resume.basics}}
@@ -24,18 +24,25 @@
                 <h3 class="uppercase font-display font-bold col-span-1 text-highlight text-lg">Employment</h3>
                 <div class="col-span-5">
                     {{#each resume.work}}
-                    <div class="pb-5">
-                        <div class="pb-2">
-                            <h4>
-                                <a class="font-medium font-display text-lg" href="{{url}}">{{name}}</a>
-                                – <span class="italic">{{position}}</span>
+                    <div class="pb-14">
+                        <div class="pb-2 font-medium flex flex-row justify-between">
+                            <h4 class="font-display text-lg">
+                                <a href="{{url}}">{{name}}</a>
+                                – <span class="italic font-normal text-twilight">{{position}}</span>
                             </h4>
-                            <p class="font-light">{{startDate}} - {{endDate}}</p>
+                            <p class="font-display text-fog text-lg">
+                                {{dateFormat startDate "MMM YYYY"}}
+                                {{#if endDate}}
+                                - {{dateFormat endDate "MMM YYYY"}}
+                                {{else}}
+                                - Present
+                                {{/if}}
+                            </p>
                         </div>
                         <div class="text-twilight">
-                            <p>{{summary}}</p>
+                            <p class="text-evening">{{summary}}</p>
                             <p>{{description}}</p>
-                            <ul class="list-square list-inside pl-10 pt-5">
+                            <ul class="list-square list-inside pt-2 pl-5">
                                 {{#each highlights}}
                                 <li>{{.}}</li>
                                 {{/each}}
@@ -45,22 +52,29 @@
                     {{/each}}
                 </div>
             </section>
-            <section class="grid grid-cols-6 gap-4 py-5">
+            <section class="grid grid-cols-6 gap-4 pb-5">
                 <h3 class="uppercase font-display font-bold col-span-1 text-highlight text-lg">Education</h3>
                 <div class="col-span-5">
                     {{#each resume.education}}
                     <div>
-                        <div class="pb-2">
-                            <h4>
-                                <a class="font-medium font-display text-lg" href="{{url}}">{{institution}}</a>
-                                – <span class="italic">{{studyType}}, {{area}}</span>
+                        <div class="pb-5 flex flex-row justify-between">
+                            <h4 class="text-lg">
+                                <a class="font-medium font-display" href="{{url}}">{{institution}}</a>
+                                – <span class="italic text-twilight">{{studyType}}, {{area}}</span>
                             </h4>
-                            <p class="font-light">{{startDate}} – {{endDate}}</p>
+                            <p class="font-display font-light text-evening text-lg">
+                                {{dateFormat startDate "YYYY"}}
+                                {{#if endDate}}
+                                - {{ dateFormat endDate "YYYY"}}
+                                {{else}}
+                                - Present
+                                {{/if}}
+                            </p>
                         </div>
                         <div class="text-twilight">
                             <p>{{summary}}</p>
                             <p>{{description}}</p>
-                            <ul class="list-square list-inside pl-10 pt-5">
+                            <ul class="list-square list-inside pt-2">
                                 {{#each highlights}}
                                 <li>{{.}}</li>
                                 {{/each}}
@@ -72,6 +86,22 @@
             </section>
             <section class="grid grid-cols-6 gap-4">
                 <h3 class="uppercase font-display font-bold text-highlight text-lg">Skills</h3>
+                <div class="flex flex-col justify-between col-span-5">
+                    {{#each resume.skills}}
+                    <div class="flex flex-row text-lg">
+                        <h4 class="font-display font-bold uppercase w-40">{{name}}</h4>
+                        <p class="pl-5 font-display italic">
+                            {{#each keywords}}
+                            {{#if @last}}
+                                <span>{{.}}</span>
+                            {{else}}
+                                <span>{{.}}</span>,&nbsp;
+                            {{/if}}
+                            {{/each}}
+                        </p>
+                    </div>
+                    {{/each}}
+                </div>
             </section>
         </main>
     </div>

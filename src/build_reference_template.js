@@ -1,6 +1,11 @@
 const fs = require('fs');
 const path = require('path');
+
 const Handlebars = require('handlebars');
+Handlebars.registerHelper(
+    'dateFormat',
+    require('handlebars-dateformat')
+);
 
 const referenceResumeData = JSON.parse(fs.readFileSync(__dirname + '/reference_resume_data.json', 'utf-8'));
 

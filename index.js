@@ -2,6 +2,10 @@ const fs = require('fs');
 const path = require('path');
 
 const Handlebars = require('handlebars');
+Handlebars.registerHelper(
+    'dateFormat',
+    require('handlebars-dateformat')
+);
 
 
 module.exports = {
